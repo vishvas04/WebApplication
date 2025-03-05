@@ -14,9 +14,13 @@ public class ProductController {
     @Autowired
     ProductService service;
     @RequestMapping("/product")
-    public List<Product> greet(){
+    public List<Product> getProducts(){
 //        return "Hello";
         return service.getProducts();
     }
 
+    public Product getProductById(int prodId){
+        return service.getProductID(prodId);
+//        return
+    }
 }

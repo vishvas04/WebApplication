@@ -14,4 +14,11 @@ public class ProductService {
     public List<Product> getProducts() {
         return products;
     }
+
+    public Product getProductID(int prodID)
+    {
+//        System.out.println("Hello");
+        return products.get(0);
+    }
+
 }
