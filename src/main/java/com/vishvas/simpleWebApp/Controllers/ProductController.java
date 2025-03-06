@@ -3,8 +3,7 @@ package com.vishvas.simpleWebApp.Controllers;
 import com.vishvas.simpleWebApp.Model.Product;
 import com.vishvas.simpleWebApp.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,14 +12,22 @@ public class ProductController {
 
     @Autowired
     ProductService service;
-    @RequestMapping("/product")
+    @GetMapping("/product")
     public List<Product> getProducts(){
 //        return "Hello";
         return service.getProducts();
     }
 
-    public Product getProductById(int prodId){
+    @GetMapping("/product/{prodId}")
+    public Product getProductById(@PathVariable int prodId){
         return service.getProductID(prodId);
 //        return
+    }
+
+    @PostMapping("/product")
+    public String addProduct(@RequestBody Product prod)
+    {
+        service.addProduct(prod);
+        return "Added";
     }
 }

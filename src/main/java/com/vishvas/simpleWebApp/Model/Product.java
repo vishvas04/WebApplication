@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class Product {
     private String productName;
-    private int price;
+    private Integer price;
     private int productId;
 }
